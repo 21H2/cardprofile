@@ -2,14 +2,19 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drh5ca-22321404-9d76-42f4-8ad0-6c2cd28c23f6-CqKx18P7B6LGcTDjLSCRLiiIwMdxfa.jpg');
-  background-size: cover;
-  background-position: center;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   overflow: hidden;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .overlay {
@@ -19,6 +24,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .card {
@@ -32,6 +38,7 @@ body {
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   animation: glowAnimation 3s infinite alternate;
+  z-index: 2;
 }
 
 @keyframes glowAnimation {
