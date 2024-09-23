@@ -1,103 +1,173 @@
-// Dynamic title animation
-const titles = ["Just a Lost Soul", "Welcome to My Space", "Exploring Darkness and Light"];
-let titleIndex = 0;
-
-setInterval(() => {
-  document.getElementById("dynamic-title").textContent = titles[titleIndex];
-  titleIndex = (titleIndex + 1) % titles.length;
-}, 3000);
-
-// Typewriter effect
-const text = "In a world of chaos, I dwell in shadows, seeking beauty in the pain and whispers of the lost.";
-let i = 0;
-const speed = 50;
-
-function typeWriter() {
-  if (i < text.length) {
-    document.querySelector(".typewriter").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drh5ca-22321404-9d76-42f4-8ad0-6c2cd28c23f6-CqKx18P7B6LGcTDjLSCRLiiIwMdxfa.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: backgroundAnimation 10s infinite alternate;
 }
 
-typeWriter();
+@keyframes backgroundAnimation {
+  0% { background-color: rgba(0, 0, 0, 0.8); }
+  100% { background-color: rgba(0, 0, 0, 0.9); }
+}
 
-// GSAP animations
-gsap.from(".card", {duration: 1.5, opacity: 0, y: 50, ease: "power3.out"});
-gsap.from(".profile-pic", {duration: 1, opacity: 0, scale: 0.5, ease: "back.out(1.7)", delay: 0.5});
-gsap.from(".glitch", {duration: 1, opacity: 0, x: -50, ease: "power2.out", delay: 0.7});
-gsap.from(".typewriter", {duration: 1, opacity: 0, y: 20, ease: "power2.out", delay: 1});
-gsap.from(".social-links a", {duration: 0.5, opacity: 0, y: 20, stagger: 0.1, ease: "power2.out", delay: 1.5});
-gsap.from(".grid-item", {duration: 0.5, opacity: 0, y: 20, stagger: 0.1, ease: "power2.out", delay: 2});
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  animation: pulse 10s infinite alternate;
+}
 
-// 3D tilt effect
-const card = document.querySelector('.card');
-card.addEventListener('mousemove', (e) => {
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  
-  const moveX = (x - centerX) / 25;
-  const moveY = (y - centerY) / 25;
-  
-  card.style.transform = `perspective(1000px) rotateY(${moveX}deg) rotateX(${-moveY}deg)`;
-});
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  100% { opacity: 0.8; }
+}
 
-card.addEventListener('mouseleave', () => {
-  card.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
-});
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: glowAnimation 3s infinite alternate;
+  transition: transform 0.3s ease-out;
+}
 
-// Particle effect
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#ffffff" },
-    shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 }, image: { src: "img/github.svg", width: 100, height: 100 } },
-    opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
-    size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
-    line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-    move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
-  },
-  interactivity: {
-    detect_on: "canvas",
-    events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-    modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
-  },
-  retina_detect: true
-});
+@keyframes glowAnimation {
+  0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
+  50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+}
 
-// Smooth scroll animation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s, filter 1s;
+  animation: floatAnimation 3s ease-in-out infinite;
+}
 
-// Random glitch effect
-setInterval(() => {
-  const glitch = document.querySelector('.glitch');
-  glitch.style.textShadow = `${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(255,0,0,0.7),
-                             ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(0,255,0,0.7),
-                             ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(0,0,255,0.7)`;
-  setTimeout(() => {
-    glitch.style.textShadow = 'none';
-  }, 50);
-}, 3000);
+@keyframes floatAnimation {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-// Parallax effect
-document.addEventListener('mousemove', parallax);
+.profile-pic:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+  filter: brightness(1.2);
+}
 
-function parallax(e) {
-  this.querySelectorAll('.parallax').forEach(layer => {
-    const speed = layer.getAttribute('data-speed');
-    const x = (window.innerWidth - e.pageX * speed) / 100;
-    const y = (window.innerHeight - e.pageY * speed) / 100;
-    layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
-  });
+.info h1, .info p {
+  color: white;
+  animation: fadeIn 1s forwards;
+}
+
+.info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  transition: text-shadow 0.3s;
+}
+
+.info p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  transition: text-shadow 0.3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.social-links a {
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  transition: transform 0.3s, color 0.3s;
+  animation: fadeIn 1s forwards, bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.social-links a:hover {
+  color: gray;
+  transform: scale(1.3) rotate(10deg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.grid-item:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.grid-item span {
+  color: white;
+  margin-left: 1rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .info h1 {
+    font-size: 2rem;
+  }
+
+  .info p {
+    font-size: 1rem;
+  }
+
+  .social-links a {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
 }
