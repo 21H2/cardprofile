@@ -1,107 +1,83 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
+const card = document.getElementById('card');
+document.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const rotateX = (y - centerY) / 50;
+  const rotateY = (centerX - x) / 50;
+  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+// Title Animation
+const titles = ["=Just a Lost Soul </3", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
+let index = 0;
+
+setInterval(() => {
+  document.getElementById("dynamic-title").innerText = titles[index];
+  index = (index + 1) % titles.length;
+}, 3000);
+
+// Typing Effect for the intro text
+const text = "In a world of chaos, I dwell in shadows, seeking beauty in the pain and whispers of the lost.";
+let charIndex = 0;
+
+function typeText() {
+  if (charIndex < text.length) {
+    document.querySelector('.typing').textContent += text.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, 100);
+  }
 }
 
-#particles-js {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
+typeText();
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.card {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  animation: glowAnimation 3s infinite alternate;
-  z-index: 2;
-}
-
-@keyframes glowAnimation {
-  0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
-  50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
-  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid white;
-}
-
-.info h1, .info p {
-  color: white;
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-}
-
-.info h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-}
-
-.info p {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid white;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.grid-item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  transition: transform 0.3s;
-}
-
-.grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-.grid-item span {
-  color: white;
-  margin-left: 1rem;
-}
+// Particles.js Configuration
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    color: { value: "#ff69b4" }, // Pink hearts
+    shape: {
+      type: "circle",
+      stroke: { width: 0, color: "#000" },
+      polygon: { nb_sides: 5 },
+    },
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: { enable: false },
+    },
+    size: {
+      value: 5,
+      random: true,
+      anim: { enable: false },
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+    },
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true,
+    },
+    modes: {
+      push: { particles_nb: 4 },
+    },
+  },
+  retina_detect: true,
+});
