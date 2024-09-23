@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
   background-color: black;
   background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drh5ca-22321404-9d76-42f4-8ad0-6c2cd28c23f6-CqKx18P7B6LGcTDjLSCRLiiIwMdxfa.jpg');
   background-size: cover;
@@ -14,7 +15,6 @@ body {
   justify-content: center;
   overflow: hidden;
   animation: backgroundAnimation 10s infinite alternate;
-  font-family: 'Philosopher', sans-serif;
 }
 
 @keyframes backgroundAnimation {
@@ -58,30 +58,46 @@ body {
   100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
 }
 
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s, filter 1s;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
 .info h1, .info p {
   color: white;
-  font-family: 'Special Elite', cursive;
   animation: fadeIn 1s forwards;
 }
 
-.italic-quote {
-  font-style: italic;
-  font-family: 'Philosopher', sans-serif;
-  letter-spacing: 2px;
-}
-
 .info h1 {
-  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-style: italic;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  letter-spacing: 3px;
+  transition: text-shadow 0.3s;
 }
 
 .info p {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  transition: text-shadow 0.3s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .social-links a {
@@ -120,11 +136,8 @@ body {
 
 .grid-item span {
   color: white;
-  margin-left: 1
-  rem;
+  margin-left: 1rem;
   font-size: 1.2rem;
-  font-family: 'Special Elite', cursive;
-  letter-spacing: 2px;
 }
 
 @media (max-width: 600px) {
@@ -144,9 +157,5 @@ body {
   .social-links a {
     font-size: 1.2rem;
     margin-right: 0.5rem;
-  }
-
-  .grid-item span {
-    font-size: 1rem;
   }
 }
