@@ -1,75 +1,65 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Title Animation
-  const titles = ["=Just a Lost Soul </3", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
-  let index = 0;
+const card = document.getElementById('card');
+const titles = ["=Just a Lost Soul </3", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
+let index = 0;
 
-  setInterval(() => {
-    document.getElementById("dynamic-title").innerText = titles[index];
-    index = (index + 1) % titles.length;
-  }, 3000); // Change title every 3 seconds
+// 3D card effect
+document.addEventListener('mousemove', (e) => {
+  const { clientX: x, clientY: y } = e;
+  const centerX = window.innerWidth / 2;
+  const centerY = window.innerHeight / 2;
+  const rotateX = (y - centerY) / 50;
+  const rotateY = (centerX - x) / 50;
+  card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
 
-  // Typing Effect for the intro text
-  const text = "In a world of chaos, I dwell in shadows, seeking beauty in the pain and whispers of the lost.";
-  let charIndex = 0;
+// Reset card position on mouse leave
+document.addEventListener('mouseleave', () => {
+  card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+});
 
-  function typeText() {
-    if (charIndex < text.length) {
-      document.querySelector('.typing').textContent += text.charAt(charIndex);
-      charIndex++;
-      setTimeout(typeText, 100);
-    }
-  }
+// Title Animation
+setInterval(() => {
+  document.getElementById("dynamic-title").innerText = titles[index];
+  index = (index + 1) % titles.length;
+}, 3000);
 
-  typeText();
+// Parallax effect for grid items
+document.addEventListener('mousemove', (e) => {
+  const gridItems = document.querySelectorAll('.grid-item');
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
 
-  // Particles.js Configuration
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 100 },
-      color: { value: "#ff69b4" }, // Pink hearts
-      shape: {
-        type: "circle",
-        stroke: { width: 0, color: "#000" },
-        polygon: { nb_sides: 5 },
-      },
-      opacity: {
-        value: 0.5,
-        random: false,
-        anim: { enable: false },
-      },
-      size: {
-        value: 5,
-        random: true,
-        anim: { enable: false },
-      },
-      line_linked: {
-        enable: true,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
-      },
-      move: {
-        enable: true,
-        speed: 6,
-        direction: "none",
-        random: false,
-        straight: false,
-        out_mode: "out",
-        bounce: false,
-      },
-    },
-    interactivity: {
-      detect_on: "canvas",
-      events: {
-        onhover: { enable: true, mode: "repulse" },
-        onclick: { enable: true, mode: "push" },
-        resize: true,
-      },
-      modes: {
-        push: { particles_nb: 4 },
-      },
-    },
-    retina_detect: true,
+  gridItems.forEach((item, index) => {
+    const depth = 15 * (index + 1);
+    const moveX = mouseX * depth;
+    const moveY = mouseY * depth;
+    item.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
 });
+
+// Typing animation for the description
+const description = "In a world of chaos, I dwell in shadows, seeking beauty in the pain and whispers of the lost.";
+const descriptionElement = document.querySelector('.info p');
+let charIndex = 0;
+
+function typeDescription() {
+  if (charIndex < description.length) {
+    descriptionElement.textContent += description.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeDescription, 50);
+  }
+}
+
+// Start typing animation when the page loads
+window.addEventListener('load', typeDescription);
+
+// Add glitch effect to the name
+const nameElement = document.querySelector('.info h1');
+setInterval(() => {
+  nameElement.style.textShadow = `${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(255, 0, 0, 0.7), 
+                                  ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(0, 255, 0, 0.7), 
+                                  ${Math.random() * 10 - 5}px ${Math.random() * 10 - 5}px rgba(0, 0, 255, 0.7)`;
+  setTimeout(() => {
+    nameElement.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.8)';
+  }, 50);
+}, 3000);
