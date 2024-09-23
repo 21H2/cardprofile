@@ -15,4 +15,18 @@ let index = 0;
 setInterval(() => {
   document.getElementById("dynamic-title").innerText = titles[index];
   index = (index + 1) % titles.length;
-}, 3000); // Change title every 3 seconds
+}, 3000);
+
+// Typing Effect for the intro text
+const text = "In a world of chaos, I dwell in shadows, seeking beauty in the pain and whispers of the lost.";
+let charIndex = 0;
+
+function typeText() {
+  if (charIndex < text.length) {
+    document.querySelector('.typing').textContent += text.charAt(charIndex);
+    charIndex++;
+    setTimeout(typeText, 100); // Adjust typing speed
+  }
+}
+
+typeText();
