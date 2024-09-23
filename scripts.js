@@ -16,3 +16,14 @@ setInterval(() => {
   document.getElementById("dynamic-title").innerText = titles[index];
   index = (index + 1) % titles.length;
 }, 3000); // Change title every 3 seconds
+
+document.addEventListener("DOMContentLoaded", function () {
+  let title = document.getElementById('dynamic-title');
+  let name = "Umesh Sharma - Just a Lost Soul";
+  let index = 0;
+  
+  setInterval(() => {
+    title.textContent = name.slice(0, index);
+    index = index >= name.length ? 0 : index + 1;
+  }, 200);
+});
