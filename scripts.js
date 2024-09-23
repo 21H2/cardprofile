@@ -1,5 +1,5 @@
 const card = document.getElementById('card');
-const titles = ["=Just a Lost Soul </3", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
+const titles = ["Tech enthusiast 🖤", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
 let index = 0;
 
 // 3D card effect
