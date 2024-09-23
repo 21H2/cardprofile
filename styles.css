@@ -10,12 +10,6 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  animation: backgroundAnimation 10s infinite alternate;
-}
-
-@keyframes backgroundAnimation {
-  0% { background-color: rgba(0, 0, 0, 0.8); }
-  100% { background-color: rgba(0, 0, 0, 0.9); }
 }
 
 .overlay {
@@ -25,13 +19,6 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  animation: pulse 10s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.5; }
-  100% { opacity: 0.8; }
 }
 
 .card {
@@ -43,7 +30,6 @@ body {
   background: rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
-  overflow: hidden;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   animation: glowAnimation 3s infinite alternate;
 }
@@ -59,62 +45,32 @@ body {
   height: 150px;
   border-radius: 50%;
   border: 2px solid white;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s, filter 1s;
-  animation: float 3s infinite ease-in-out; /* Floating effect */
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
 
 .info h1, .info p {
   color: white;
-  animation: fadeIn 1s forwards; /* Fade-in effect */
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
 
 .info h1 {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  transition: text-shadow 0.3s;
-  animation: pulse 2s infinite; /* Pulsing effect */
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
 }
 
 .info p {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  transition: text-shadow 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
 }
 
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
-}
-
-.social-links a {
-  color: white;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.social-links a:hover {
-  color: #ff69b4; /* Change color on hover */
-  transform: scale(1.2) translateY(-5px); /* Bounce effect */
 }
 
 .grid {
@@ -130,13 +86,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem;
   border-radius: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  opacity: 0; /* Start hidden for fade-in effect */
-  animation: fadeInGrid 0.5s forwards; /* Fade-in for grid items */
-}
-
-@keyframes fadeInGrid {
-  to { opacity: 1; transform: translateY(0); }
+  transition: transform 0.3s;
 }
 
 .grid-item:hover {
@@ -147,25 +97,4 @@ body {
 .grid-item span {
   color: white;
   margin-left: 1rem;
-  font-size: 1.2rem;
-}
-
-@media (max-width: 600px) {
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-  }
-
-  .info h1 {
-    font-size: 2rem;
-  }
-
-  .info p {
-    font-size: 1rem;
-  }
-
-  .social-links a {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
 }
