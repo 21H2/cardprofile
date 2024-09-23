@@ -1,98 +1,218 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title id="dynamic-title">Umesh Sharma - Just a Lost Soul</title>
+  <link rel="icon" href="https://media.tenor.com/sTdFxS_aOXMAAAAM/dancing-cute.gif" type="image/gif"> <!-- Favicon -->
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drh5ca-22321404-9d76-42f4-8ad0-6c2cd28c23f6-CqKx18P7B6LGcTDjLSCRLiiIwMdxfa.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      animation: backgroundAnimation 10s infinite alternate;
+    }
 
-body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #111;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
+    @keyframes backgroundAnimation {
+      0% { background-color: rgba(0, 0, 0, 0.8); }
+      100% { background-color: rgba(0, 0, 0, 0.9); }
+    }
 
-.card {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.8);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: white;
-}
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      animation: pulse 10s infinite alternate;
+    }
 
-.profile-pic {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-}
+    @keyframes pulse {
+      0% { opacity: 0.5; }
+      100% { opacity: 0.8; }
+    }
 
-.info h1 {
-  font-size: 2em;
-  font-weight: 700;
-  margin: 10px 0;
-  color: white;
-  position: relative;
-  animation: pulse 2s infinite;
-}
+    .card {
+      position: relative;
+      width: 90%;
+      max-width: 900px; /* Increased for better desktop visibility */
+      padding: 2rem;
+      border-radius: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      animation: glowAnimation 3s infinite alternate;
+    }
 
-.info p {
-  font-size: 0.9em;
-  font-weight: 400;
-  line-height: 1.6;
-}
+    @keyframes glowAnimation {
+      0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
+      50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
+      100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+    }
 
-.social-links a {
-  margin: 0 5px;
-}
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid white;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s, filter 1s;
+    }
 
-.grid {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
 
-.grid-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .info h1 {
+      color: white;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+      transition: text-shadow 0.3s;
+    }
 
-.grid-item img {
-  margin-bottom: 10px;
-}
+    .info p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+      transition: text-shadow 0.3s;
+    }
 
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: transform 0.3s, color 0.3s;
+    }
 
-/* Dark theme enhancements */
-.overlay {
-  background-color: rgba(0, 0, 0, 0.75);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
+    .social-links a:hover {
+      color: gray;
+      transform: scale(1.3);
+    }
 
-h1:hover {
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+      gap: 1rem;
+      margin-top: 1rem;
+    }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6;
-  }
-  to {
-    text-shadow: 0 0 20px #ff4da6, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6;
-  }
-}
+    .grid-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: 1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    .grid-item span {
+      color: white;
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 600px) {
+      .profile-pic {
+        width: 100px;
+        height: 100px;
+      }
+
+      .info h1 {
+        font-size: 2rem;
+      }
+
+      .info p {
+        font-size: 1rem;
+      }
+
+      .social-links a {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="card" id="card">
+    <div class="flex-row">
+      <img src="https://i.pinimg.com/736x/3e/dc/6c/3edc6c2847921b7a28f02c261e6f51e2.jpg" alt="Profile Picture" class="profile-pic" />
+      <div class="info">
+        <h1>Umesh Sharma</h1>
+        <p>In the realm of code and tech, I weave tales of resilience and whispers of the unseen, embracing the darkness and finding solace in the beautiful chaos of life.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/reappoint3d"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" width="24" /></a>
+          <a href="https://last.fm/k0q"><img src="https://img.icons8.com/ios-filled/50/ffffff/lastfm.png" alt="Last.fm" width="24" /></a>
+          <a href="https://github.com/21h2"><img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" width="24" /></a>
+          <a href="https://discord.gg/reappointed"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord" width="24" /></a>
+          <a href="mailto:ume@waifu.club"><img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail" width="24" /></a>
+          <a href="https://open.spotify.com/user/your_spotify_user"><img src="https://img.icons8.com/ios-filled/50/ffffff/spotify.png" alt="Spotify" width="24" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/music.png" alt="Music" width="32" />
+        <span>Exploring Sounds</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Book" width="32" />
+        <span>Dark Literature</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/new-moon.png" alt="Moon" width="32" />
+        <span>Embracing Shadows</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/headphones.png" alt="Headphones" width="32" />
+        <span>Lost in Dark Melodies</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    document.addEventListener('mousemove', (e) => {
+      const { clientX: x, clientY: y } = e;
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const rotateX = (y - centerY) / 50;
+      const rotateY = (centerX - x) / 50;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    // Title Animation
+    const titles = ["=Just a Lost Soul </3", "Welcome to My Space 🌟", "Exploring Darkness and Light ✨"];
+    let index = 0;
+
+    setInterval(() => {
+      document.getElementById("dynamic-title").innerText = titles[index];
+      index = (index + 1) % titles.length;
+    }, 3000); // Change title every 3 seconds
+  </script>
+</body>
+</html>
