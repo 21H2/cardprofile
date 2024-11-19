@@ -1,173 +1,52 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  background-image: url('https://wallpaperaccess.com/full/8088668.gif');
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  animation: backgroundAnimation 10s infinite alternate;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title id="dynamic-title">My Profile</title>
+  <link rel="icon" href="https://static.wikia.nocookie.net/c6df2888-9bd2-4195-a154-674f9d13919f" type="image/gif">
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="card" id="card">
+    <div class="flex-row">
+      <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic" />
+      <div class="info">
+        <h1>Gloock</h1>
+        <p>Tech enthusiast exploring the world of coding, AI, and everything in between. Here to learn, create, and innovate.</p>
+        <div class="social-links">
+          <a href="https://last.fm/user/k0q"><img src="https://img.icons8.com/ios-filled/50/ffffff/lastfm.png" alt="Last.fm" width="24" /></a>
+          <a href="https://github.com/21h2"><img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" width="24" /></a>
+          <a href="https://discord.dog/261627553926610944"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord" width="24" /></a>
+          <a href="mailto:ume@waifu.club"><img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail" width="24" /></a>
+          <a href="https://open.spotify.com/user/p7rhp5mtdmyjfqg3x7yu2xc57?si=2fbfbf2663994dbe&nd=1&dlsi=4b41ce7399b24aeb"><img src="https://img.icons8.com/ios-filled/50/ffffff/spotify.png" alt="Spotify" width="24" /></a>
+        </div>
+      </div>
+    </div>
 
-@keyframes backgroundAnimation {
-  0% { background-color: rgba(0, 0, 0, 0.8); }
-  100% { background-color: rgba(0, 0, 0, 0.9); }
-}
+    <div class="grid">
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/music.png" alt="Music" width="32" />
+        <span>Lost in Melodies</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/book.png" alt="Book" width="32" />
+        <span>Student</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/new-moon.png" alt="Moon" width="32" />
+        <span>Learning</span>
+      </div>
+      <div class="grid-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/headphones.png" alt="Headphones" width="32" />
+        <span>Exploring dev</span>
+      </div>
+    </div>
+  </div>
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  animation: pulse 10s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.5; }
-  100% { opacity: 0.8; }
-}
-
-.card {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  animation: glowAnimation 3s infinite alternate;
-  transition: transform 0.3s ease-out;
-}
-
-@keyframes glowAnimation {
-  0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
-  50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
-  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
-}
-
-.profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid white;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s, filter 1s;
-  animation: floatAnimation 3s ease-in-out infinite;
-}
-
-@keyframes floatAnimation {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.profile-pic:hover {
-  transform: scale(1.05) rotate(5deg);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-  filter: brightness(1.2);
-}
-
-.info h1, .info p {
-  color: white;
-  animation: fadeIn 1s forwards;
-}
-
-.info h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  transition: text-shadow 0.3s;
-}
-
-.info p {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  transition: text-shadow 0.3s;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.social-links a {
-  color: white;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  transition: transform 0.3s, color 0.3s;
-  animation: fadeIn 1s forwards, bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-.social-links a:hover {
-  color: gray;
-  transform: scale(1.3) rotate(10deg);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.grid-item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.grid-item:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-.grid-item span {
-  color: white;
-  margin-left: 1rem;
-  font-size: 1.2rem;
-}
-
-@media (max-width: 600px) {
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-  }
-
-  .info h1 {
-    font-size: 2rem;
-  }
-
-  .info p {
-    font-size: 1rem;
-  }
-
-  .social-links a {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
-}
+  <script src="script.js"></script>
+</body>
+</html>
