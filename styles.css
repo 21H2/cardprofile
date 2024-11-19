@@ -33,11 +33,6 @@ body {
   transition: all 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
-}
-
 /* Neon Glowing Border Effect */
 .card:before {
   content: '';
@@ -53,18 +48,6 @@ body {
   animation: glow 1.5s infinite alternate;
 }
 
-/* Neon Glow Animation */
-@keyframes glow {
-  0% {
-    transform: scale(1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-}
-
 /* Profile Picture */
 .profile-pic {
   width: 120px;
@@ -76,45 +59,47 @@ body {
   animation: bounce 1s ease infinite alternate;
 }
 
-/* Profile Name */
-.gloock-font {
-  font-family: 'Gloock', sans-serif;
-  font-size: 2rem;
-  color: #F4ABC4;
-  margin-bottom: 10px;
-}
-
-/* Profile Description */
-.description {
-  color: #B0B0B0;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-  line-height: 1.5;
-}
-
 /* Social Links */
 .social-links {
   display: flex;
   justify-content: center;
   gap: 20px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .social-links img {
   width: 30px;
   height: 30px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .social-links a:hover img {
-  transform: scale(1.2);
+  transform: scale(1.5);
+  filter: drop-shadow(0px 0px 10px #F4ABC4);
 }
 
-/* Grid Section Below - Better Design */
+/* Scrollable Blocks Section */
+.grid-container {
+  width: 100%;
+  max-height: 0; /* Initially hidden */
+  overflow-y: hidden; /* Hide when it's off-screen */
+  margin-top: 20px;
+  transition: max-height 1s ease-in-out;
+}
+
+.grid-container.show {
+  max-height: 300px; /* Show the container when active */
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
-  margin-top: 30px;
   width: 100%;
 }
 
@@ -125,12 +110,10 @@ body {
   text-align: center;
   color: #fff;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
 .grid-item:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
   background: linear-gradient(145deg, #F4ABC4, #333456);
 }
 
@@ -138,30 +121,14 @@ body {
   width: 50px;
   height: 50px;
   margin-bottom: 15px;
-  transition: all 0.3s ease;
 }
 
-.grid-item:hover img {
-  transform: rotate(15deg);
-}
-
-/* Text for each item */
 .grid-item span {
   font-size: 1.2rem;
   font-weight: bold;
   color: #F4ABC4;
-  display: block;
-  margin-top: 10px;
-  letter-spacing: 1px;
 }
 
-.grid-item p {
-  font-size: 1rem;
-  color: #B0B0B0;
-  margin-top: 10px;
-}
-
-/* Mobile-Friendly Adjustments for Grid */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
@@ -178,40 +145,13 @@ body {
   }
 }
 
-/* Styling the Card Background */
-.card {
-  background-color: #060930;
-  border-radius: 15px;
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-/* Under Card Glow */
-.card:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(145deg, #F4ABC4, #333456, #595B83);
-  border-radius: 15px;
-  z-index: -1;
-  filter: blur(10px);
-  animation: glowing-border 1.5s infinite alternate;
-}
-
-/* Glowing Border Animation */
-@keyframes glowing-border {
+@keyframes glow {
   0% {
     transform: scale(1);
     opacity: 0.8;
   }
   100% {
-    transform: scale(1.05);
+    transform: scale(1.1);
     opacity: 1;
   }
 }
