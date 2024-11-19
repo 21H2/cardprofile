@@ -9,30 +9,35 @@
   <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- Make sure the path is correct -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
-  <div class="overlay"></div>
+  <!-- Background Particles -->
+  <div id="background"></div>
+
   <div class="card" id="card">
-    <div class="flex-row">
-      <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic" />
-      <div class="info">
-        <h1>Umesh Sharma</h1>
-        <p class="description">Teen tech enthusiast passionate about AI, coding, and innovation. Eager to learn, connect, and contribute to the tech community.</p>
-        <div class="social-links">
-          <a href="https://last.fm/user/k0q"><img src="https://img.icons8.com/ios-filled/50/ffffff/lastfm.png" alt="Last.fm" width="24" /></a>
-          <a href="https://github.com/21h2"><img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" width="24" /></a>
-          <a href="https://discord.dog/261627553926610944"><img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord" width="24" /></a>
-          <a href="mailto:ume@waifu.club"><img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail" width="24" /></a>
-          <a href="https://open.spotify.com/user/p7rhp5mtdmyjfqg3x7yu2xc57?si=2fbfbf2663994dbe&nd=1&dlsi=4b41ce7399b24aeb"><img src="https://img.icons8.com/ios-filled/50/ffffff/spotify.png" alt="Spotify" width="24" /></a>
-        </div>
+    <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic" />
+    <div class="info">
+      <h1>Umesh Sharma</h1>
+      <p class="description">Teen tech enthusiast passionate about AI, coding, and innovation.</p>
+      
+      <div class="social-links">
+        <a href="https://github.com/21h2" title="GitHub Profile">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+        </a>
+        <a href="mailto:ume@waifu.club" title="Email Me">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail">
+        </a>
+        <a href="https://discord.dog/261627553926610944" title="Discord">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord">
+        </a>
       </div>
     </div>
-
-    <!-- Removed the grid section with blocks here -->
   </div>
 
-  <script src="script.js"></script> <!-- Make sure the path is correct -->
+  <script src="script.js"></script>
 </body>
 </html>
