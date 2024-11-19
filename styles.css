@@ -34,19 +34,19 @@ body {
   position: relative;
 }
 
-/* Neon Glowing Border Effect Outside the Card */
+/* Lively Neon Glowing Border Effect Outside the Card */
 .card:before {
   content: '';
   position: absolute;
-  top: -15px;   /* Shift the glow outwards */
-  left: -15px;  /* Shift the glow outwards */
-  right: -15px; /* Shift the glow outwards */
-  bottom: -15px;/* Shift the glow outwards */
+  top: -20px;   /* Shift the glow outwards */
+  left: -20px;  /* Shift the glow outwards */
+  right: -20px; /* Shift the glow outwards */
+  bottom: -20px;/* Shift the glow outwards */
   background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
   border-radius: 20px; /* A bit larger to fit outside */
   z-index: -1;
-  filter: blur(20px);  /* Make the glow soft and diffused */
-  animation: glow 1.5s infinite alternate;
+  filter: blur(25px);  /* Make the glow soft and diffused */
+  animation: lively-glow 1.5s infinite alternate;
 }
 
 /* Profile Picture */
@@ -146,13 +146,31 @@ body {
   }
 }
 
-@keyframes glow {
+/* More Dynamic Glow */
+@keyframes lively-glow {
   0% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
     opacity: 0.8;
+    background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
+  }
+  25% {
+    transform: scale(1.05) rotate(15deg);
+    opacity: 1;
+    background: linear-gradient(145deg, #F4ABC4, #FF61A6, #F4ABC4, #595B83);
+  }
+  50% {
+    transform: scale(1.1) rotate(30deg);
+    opacity: 0.9;
+    background: linear-gradient(145deg, #FF61A6, #F4ABC4, #333456, #595B83);
+  }
+  75% {
+    transform: scale(1.05) rotate(15deg);
+    opacity: 1;
+    background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #FF61A6);
   }
   100% {
-    transform: scale(1.1);
-    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.8;
+    background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
   }
 }
