@@ -8,16 +8,6 @@ body {
     padding: 0;
 }
 
-/* Card Container */
-.card {
-    background-color: rgba(0, 9, 48, 0.7); /* Dark purple with transparency */
-    border-radius: 15px;
-    padding: 20px;
-    max-width: 500px;
-    margin: 30px auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-
 /* Overlay Effect */
 .overlay {
     position: absolute;
@@ -29,34 +19,52 @@ body {
     z-index: -1;
 }
 
+/* Horizontal Card */
+.card {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    background-color: rgba(0, 9, 48, 0.7); /* Dark purple with transparency */
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
 /* Profile Picture */
 .profile-pic {
     border-radius: 50%;
     width: 120px;
     height: 120px;
     object-fit: cover;
+    margin-right: 20px; /* Space between image and text */
 }
 
-/* Header */
+/* Profile Information */
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1; /* Allows the text section to take up remaining space */
+}
+
 h1.gloock-font {
     color: #F4ABC4; /* Soft pink */
-    font-size: 2em;
-    text-align: center;
+    font-size: 2.5em;
+    margin: 0;
 }
 
-/* Description */
 .description {
-    color: #B0B0B0; /* Light gray for the description */
-    font-size: 1em;
-    text-align: center;
+    color: #B0B0B0; /* Light gray for description */
+    font-size: 1.2em;
     margin-top: 10px;
 }
 
 /* Social Links */
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 15px;
     margin-top: 20px;
 }
 
