@@ -50,9 +50,7 @@ body {
   overflow: hidden;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   animation: glowAnimation 3s infinite alternate;
-  transition: transform 0.1s ease-out, box-shadow 0.3s ease;
-  transform-style: preserve-3d; /* This ensures 3D transforms work */
-  perspective: 1000px; /* Add perspective to enable depth */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease;
 }
 
 @keyframes glowAnimation {
@@ -91,14 +89,14 @@ body {
 }
 
 .info h1 {
-  font-size: 2.8rem;
+  font-size: 2rem; /* Made the text smaller */
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   transition: text-shadow 0.3s ease-in-out;
 }
 
 .info p {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Made the text smaller */
   margin-bottom: 1.5rem;
   line-height: 1.5;
   transition: color 0.3s;
@@ -116,7 +114,7 @@ body {
 /* Social Links */
 .social-links a {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Slightly smaller size for social icons */
   margin-right: 1rem;
   transition: transform 0.3s, color 0.3s;
   animation: fadeIn 1s forwards, bounce 2s infinite;
@@ -168,11 +166,6 @@ body {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Parallax effect for grid items */
-.grid-item {
-  transition: transform 0.1s ease-in-out;
-}
-
 /* Responsive Design */
 @media (max-width: 600px) {
   .profile-pic {
@@ -181,7 +174,7 @@ body {
   }
 
   .info h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .info p {
@@ -192,13 +185,4 @@ body {
     font-size: 1.2rem;
     margin-right: 0.5rem;
   }
-}
-
-/* Title for dynamic changes */
-#dynamic-title {
-  font-family: 'Gloock', cursive;
-  font-size: 1.5rem;
-  color: white;
-  text-align: center;
-  margin-top: 30px;
 }
