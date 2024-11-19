@@ -40,6 +40,9 @@ body {
   z-index: 1;
   border: 2px solid #F4ABC4;
   animation: borderGlow 3s infinite alternate;
+  filter: brightness(1) drop-shadow(0 0 10px rgba(244, 171, 196, 0.8));
+  /* Add diffused light effect */
+  box-shadow: 0 0 30px rgba(244, 171, 196, 0.8), 0 0 60px rgba(244, 171, 196, 0.6), 0 0 100px rgba(244, 171, 196, 0.4);
 }
 
 /* Profile Picture */
