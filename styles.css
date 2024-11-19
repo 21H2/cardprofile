@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Gloock', sans-serif;
+  font-family: 'Poppins', sans-serif; /* Updated font */
   background-color: #060930;
   color: #fff;
   display: flex;
@@ -133,3 +133,6 @@ body {
 html, body {
   font-smooth: always;
 }
+
+/* Add Google Font link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
