@@ -32,12 +32,9 @@ body {
 .card-container {
   perspective: 1000px; /* Adjust perspective for smoother 3D effect */
   width: 50vw; /* Set width to 50% of the viewport width */
-  height: 75vh; /* Set height to 75% of the viewport height for a portrait card */
+  padding-top: 75%; /* Adjust padding to maintain a portrait aspect ratio */
   max-width: 400px; /* Maximum width */
   max-height: 600px; /* Maximum height */
-  border: 2px solid #F4ABC4; /* Add border around the card container */
-  border-radius: 12px;
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,9 +48,7 @@ body {
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   transition: transform 0.6s ease-in-out;
-  border-radius: 12px;
-  /* Ensure the flip starts from the center */
-  transform-origin: center center;
+  /* Remove border around the card */
 }
 
 /* Hover effect to flip the card */
