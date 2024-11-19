@@ -12,8 +12,10 @@ body {
   justify-content: center;
   overflow: hidden;
   animation: backgroundAnimation 10s infinite alternate;
-  font-family: 'Gloock', sans-serif; /* Gloock font is thin and minimal */
-  font-weight: 300; /* Thin font weight */
+  font-family: 'Gloock', sans-serif; /* Thin minimal font */
+  font-weight: 100; /* Very thin font weight for minimalistic look */
+  color: #ddd; /* Soft light color for the text */
+  letter-spacing: 0.1em; /* Subtle letter spacing for that minimal, modern look */
 }
 
 @keyframes backgroundAnimation {
@@ -84,19 +86,20 @@ body {
 }
 
 .info h1 {
-  font-size: 2.5rem; /* Adjusted font size for thin emo look */
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  font-weight: 300; /* Thin font weight */
-  letter-spacing: 0.05em; /* Subtle letter spacing */
+  font-weight: 100; /* Very thin font weight */
+  letter-spacing: 0.1em; /* Thin and spaced out for a modern minimal effect */
 }
 
 .info p {
-  font-size: 1.4rem; /* Smaller, minimal text */
+  font-size: 1.4rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  font-weight: 200; /* Even lighter text */
-  color: #ddd; /* Soft text color for emo vibe */
+  font-weight: 100; /* Very light text */
+  color: #ddd; /* Soft color for text */
+  letter-spacing: 0.05em; /* Small letter-spacing for that clean minimal look */
 }
 
 .info p:hover {
@@ -158,8 +161,8 @@ body {
 .grid-item span {
   color: white;
   margin-left: 1rem;
-  font-size: 1rem; /* Smaller font for grid text */
-  font-weight: 200; /* Thin font for emo effect */
+  font-size: 1rem;
+  font-weight: 100; /* Light text for minimal look */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
