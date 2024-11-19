@@ -10,7 +10,6 @@ body {
   background-color: #060930;
   color: #f4f4f4;
   overflow-x: hidden;
-  transition: background 0.3s ease;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -18,55 +17,33 @@ body {
   position: relative;
 }
 
-/* Background Glow Effect */
-@keyframes backgroundGlow {
-  0% { opacity: 0.1; }
-  10% { opacity: 0.15; }
-  20% { opacity: 0.2; }
-  30% { opacity: 0.3; }
-  40% { opacity: 0.4; }
-  50% { opacity: 0.5; }
-  60% { opacity: 0.6; }
-  70% { opacity: 0.7; }
-  80% { opacity: 0.8; }
-  90% { opacity: 0.9; }
-  100% { opacity: 1; }
-}
-
-body::before {
-  content: "";
+/* Particles.js Background */
+#background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, #f4ABC4, #595B83, #333456, #060930);
   z-index: -1;
-  filter: blur(30px);
-  animation: backgroundGlow 3s infinite alternate; /* Added glow animation to the background */
 }
 
-/* Primary Card Styles */
+/* Card Styles */
 .card {
   width: 80%;
   max-width: 500px;
-  margin: 5vh auto;
-  background: #595B83;
   padding: 2em;
+  background: #595B83;
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   position: relative;
+  text-align: center;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  overflow: hidden;
-  background-color: rgba(89, 91, 131, 1); /* Solid background */
+  border: 2px solid #F4ABC4;
+  animation: borderGlow 3s infinite alternate;
 }
 
 /* Profile Picture */
-.card .profile-pic {
+.profile-pic {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -75,55 +52,71 @@ body::before {
 }
 
 /* Card Information */
-.card .info {
-  text-align: center;
+.info {
   margin-bottom: 1em;
 }
 
-.card h1 {
+h1 {
   font-size: 2rem;
+  color: #F4ABC4; /* Accent color */
   margin-bottom: 0.5em;
-  color: #F4ABC4; /* Accent color applied */
 }
 
-.card .description {
+.description {
   font-size: 1rem;
   color: #dcdcdc;
   margin-bottom: 1em;
-  color: #F4ABC4; /* Accent color applied */
 }
 
 /* Social Links */
-.card .social-links a {
-  margin: 0 10px;
-}
-
-.card .social-links img {
-  width: 24px;
-  height: 24px;
+.social-links a {
+  margin: 0 15px;
   transition: transform 0.3s ease;
 }
 
-.card .social-links a:hover img {
+.social-links img {
+  width: 24px;
+  height: 24px;
+}
+
+.social-links a:hover img {
   transform: scale(1.2);
 }
 
-/* Card Hover Effect */
+/* Tooltip for Social Links */
+.social-links a[title] {
+  position: relative;
+}
+
+.social-links a[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Border Glow Animation */
+@keyframes borderGlow {
+  0% { border-color: #f4ABC4; }
+  50% { border-color: #595B83; }
+  100% { border-color: #F4ABC4; }
+}
+
+/* Hover Effect on Card */
 .card:hover {
   transform: scale(1.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Links Hover Effect */
-.card .links a {
-  color: #F4ABC4; /* Accent color applied */
-  font-size: 1rem;
-  margin: 10px 0;
-  transition: all 0.3s ease;
-}
-
-.card .links a:hover {
-  color: #fff;
-  text-decoration: underline;
-  transform: scale(1.05);
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
 }
