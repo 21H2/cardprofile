@@ -26,12 +26,11 @@ body {
   border-radius: 15px;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-  overflow: hidden;
   z-index: 1;
   text-align: center;
   backdrop-filter: blur(10px);
+  overflow: hidden;
   transition: all 0.3s ease;
-  position: relative;
 }
 
 /* Lively Neon Glowing Border Effect Outside the Card */
@@ -46,7 +45,7 @@ body {
   border-radius: 20px; /* A bit larger to fit outside */
   z-index: -1;
   filter: blur(25px);  /* Make the glow soft and diffused */
-  animation: lively-glow 1.5s infinite alternate;
+  animation: lively-glow 3s ease infinite alternate;
 }
 
 /* Profile Picture */
@@ -84,58 +83,6 @@ body {
   filter: drop-shadow(0px 0px 10px #F4ABC4);
 }
 
-/* Scrollable Blocks Section */
-.grid-container {
-  width: 100%;
-  max-height: 0; /* Initially hidden */
-  overflow-y: hidden; /* Hide when it's off-screen */
-  margin-top: 20px;
-  transition: max-height 1s ease-in-out;
-}
-
-.grid-container.show {
-  max-height: 300px; /* Show the container when active */
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  width: 100%;
-}
-
-.grid-item {
-  background: linear-gradient(145deg, #333456, #595B83);
-  padding: 30px;
-  border-radius: 10px;
-  text-align: center;
-  color: #fff;
-  transition: all 0.3s ease;
-}
-
-.grid-item:hover {
-  transform: scale(1.05);
-  background: linear-gradient(145deg, #F4ABC4, #333456);
-}
-
-.grid-item img {
-  width: 50px;
-  height: 50px;
-  margin-bottom: 15px;
-}
-
-.grid-item span {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #F4ABC4;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Animations */
 @keyframes bounce {
   0% {
@@ -154,17 +101,17 @@ body {
     background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
   }
   25% {
-    transform: scale(1.05) rotate(15deg);
+    transform: scale(1.05) rotate(5deg);
     opacity: 1;
     background: linear-gradient(145deg, #F4ABC4, #FF61A6, #F4ABC4, #595B83);
   }
   50% {
-    transform: scale(1.1) rotate(30deg);
+    transform: scale(1.1) rotate(15deg);
     opacity: 0.9;
     background: linear-gradient(145deg, #FF61A6, #F4ABC4, #333456, #595B83);
   }
   75% {
-    transform: scale(1.05) rotate(15deg);
+    transform: scale(1.05) rotate(10deg);
     opacity: 1;
     background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #FF61A6);
   }
