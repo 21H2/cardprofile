@@ -14,6 +14,7 @@ body {
   justify-content: center;
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 /* Particles.js Background */
@@ -29,16 +30,19 @@ body {
 /* Card Container */
 .card-container {
   perspective: 1000px;
-  width: 100%;
-  max-width: 400px; /* Set max-width for card */
-  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 /* Card Styles */
 .card {
   width: 100%;
-  max-width: 400px; /* Set max-width for card */
-  aspect-ratio: 0.6; /* Maintain aspect ratio (portrait) */
+  max-width: 300px; /* Adjust max-width for portrait */
+  height: 100%;
+  max-height: 500px; /* Set max-height for card */
+  aspect-ratio: 0.6; /* Portrait ratio */
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   background-color: #595B83;
@@ -103,8 +107,20 @@ body {
   transform: scale(1.2);
 }
 
-/* Hover and Active Transitions */
-.card:hover .card-inner {
+/* Flip Text */
+.flip-text {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 1);
+  font-weight: 500;
+}
+
+/* Flip Effect */
+.card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
