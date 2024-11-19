@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
-  background-image: url('https://wallpaperaccess.com/full/8088668.gif');
+  background-image: url('https://wallpaperaccess.com/full/8088668.gif'); /* Soft animated background */
   background-size: cover;
   background-position: center;
   min-height: 100vh;
@@ -12,12 +12,13 @@ body {
   justify-content: center;
   overflow: hidden;
   animation: backgroundAnimation 10s infinite alternate;
-  font-family: 'Gloock', sans-serif; /* Thin minimal font */
-  font-weight: 100; /* Very thin font weight for minimalistic look */
-  color: #ddd; /* Soft light color for the text */
-  letter-spacing: 0.1em; /* Subtle letter spacing for that minimal, modern look */
+  font-family: 'Roboto', sans-serif; /* Use a very thin font for minimalism */
+  font-weight: 100; /* Thin font weight */
+  color: #ddd; /* Soft text color for contrast */
+  letter-spacing: 0.1em; /* Space out the letters for a clean, airy feel */
 }
 
+/* Subtle Background Animation */
 @keyframes backgroundAnimation {
   0% { background-color: rgba(0, 0, 0, 0.8); }
   100% { background-color: rgba(0, 0, 0, 0.9); }
@@ -56,6 +57,12 @@ body {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease;
 }
 
+@keyframes glowAnimation {
+  0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
+  50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
+  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+}
+
 /* Profile Picture */
 .profile-pic {
   width: 150px;
@@ -79,7 +86,7 @@ body {
   filter: brightness(1.2);
 }
 
-/* Info Section */
+/* Info Section (Titles & Text) */
 .info h1, .info p {
   color: white;
   animation: fadeIn 1s forwards;
@@ -89,17 +96,17 @@ body {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  font-weight: 100; /* Very thin font weight */
-  letter-spacing: 0.1em; /* Thin and spaced out for a modern minimal effect */
+  font-weight: 100; /* Thin font for h1 */
+  letter-spacing: 0.1em;
 }
 
 .info p {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  font-weight: 100; /* Very light text */
-  color: #ddd; /* Soft color for text */
-  letter-spacing: 0.05em; /* Small letter-spacing for that clean minimal look */
+  font-weight: 100; /* Light text for p */
+  color: #ddd; /* Soft color */
+  letter-spacing: 0.05em; /* Subtle letter-spacing */
 }
 
 .info p:hover {
@@ -162,7 +169,7 @@ body {
   color: white;
   margin-left: 1rem;
   font-size: 1rem;
-  font-weight: 100; /* Light text for minimal look */
+  font-weight: 100; /* Thin font weight */
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
