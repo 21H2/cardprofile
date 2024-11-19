@@ -7,8 +7,8 @@ document.addEventListener("mousemove", (e) => {
   const { clientX: x, clientY: y } = e;
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
-  const rotateX = (y - centerY) / 20;  // Adjusted the sensitivity for smoother motion
-  const rotateY = (centerX - x) / 20; // Adjusted the sensitivity for smoother motion
+  const rotateX = (y - centerY) / 20;  // Adjusted for smoother effect
+  const rotateY = (centerX - x) / 20; // Adjusted for smoother effect
   card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
@@ -38,10 +38,10 @@ document.addEventListener("visibilitychange", () => {
 document.addEventListener("mousemove", (e) => {
   const { clientX: mouseX, clientY: mouseY } = e;
   const gridItems = document.querySelectorAll('.grid-item');
-  
+
   gridItems.forEach((item) => {
     const rect = item.getBoundingClientRect();
-    const deltaX = (mouseX - rect.left - rect.width / 2) / 30;
+    const deltaX = (mouseX - rect.left - rect.width / 2) / 30; // Parallax effect calculation
     const deltaY = (mouseY - rect.top - rect.height / 2) / 30;
     item.style.transform = `translateX(${deltaX}px) translateY(${deltaY}px)`;
   });
