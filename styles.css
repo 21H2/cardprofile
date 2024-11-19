@@ -71,6 +71,12 @@ body {
   50% { transform: translateY(-10px); }
 }
 
+.gloock-font {
+  font-family: 'Gloock', cursive;
+  font-size: 36px;
+  color: #ffffff;
+}
+
 .profile-pic:hover {
   transform: scale(1.05) rotate(5deg);
   box-shadow: 0 0 20px rgba(255, 255, 255, 1);
