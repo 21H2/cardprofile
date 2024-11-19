@@ -12,10 +12,10 @@ body {
   overflow-x: hidden;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   position: relative;
-  margin: 0 10px; /* Small margin for borders */
+  margin: 0;
 }
 
 /* Particles.js Background */
@@ -32,12 +32,11 @@ body {
 .card-container {
   perspective: 1000px; /* Adjust perspective for smoother 3D effect */
   width: 50vw; /* Set width to 50% of the viewport width */
-  padding-top: 75%; /* Adjust padding to maintain a portrait aspect ratio */
-  max-width: 400px; /* Maximum width */
-  max-height: 600px; /* Maximum height */
+  height: 80vh; /* Set height to 80% of the viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 /* Card Styles */
@@ -48,7 +47,8 @@ body {
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   transition: transform 0.6s ease-in-out;
-  /* Remove border around the card */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Hover effect to flip the card */
