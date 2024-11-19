@@ -1,195 +1,117 @@
-/* General Settings */
+/* Base Styles */
 body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  background-image: url('https://wallpaperaccess.com/full/8088668.gif'); /* Soft animated background */
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  animation: backgroundAnimation 10s infinite alternate;
-  font-family: 'Roboto', sans-serif; /* Use a very thin font for minimalism */
-  font-weight: 100; /* Thin font weight */
-  color: #ddd; /* Soft text color for contrast */
-  letter-spacing: 0.1em; /* Space out the letters for a clean, airy feel */
-}
-
-/* Subtle Background Animation */
-@keyframes backgroundAnimation {
-  0% { background-color: rgba(0, 0, 0, 0.8); }
-  100% { background-color: rgba(0, 0, 0, 0.9); }
-}
-
-/* Overlay Effect */
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-  animation: pulse 10s infinite alternate;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.5; }
-  100% { opacity: 0.8; }
+    font-family: 'Gloock', sans-serif;
+    background: url('your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; /* Text color for contrast */
+    margin: 0;
+    padding: 0;
 }
 
 /* Card Container */
 .card {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-  padding: 2rem;
-  border-radius: 1.5rem;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  animation: glowAnimation 3s infinite alternate;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+    background-color: rgba(0, 9, 48, 0.7); /* Dark purple with transparency */
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 30px auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes glowAnimation {
-  0% { box-shadow: 0 0 20px rgba(255, 20, 147, 1); }
-  50% { box-shadow: 0 0 30px rgba(128, 0, 128, 1); }
-  100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+/* Overlay Effect */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 30, 0.6); /* Darker overlay for better contrast */
+    z-index: -1;
 }
 
 /* Profile Picture */
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid white;
-  object-fit: cover;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s, box-shadow 0.3s, filter 1s;
-  animation: floatAnimation 3s ease-in-out infinite;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
 }
 
-@keyframes floatAnimation {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+/* Header */
+h1.gloock-font {
+    color: #F4ABC4; /* Soft pink */
+    font-size: 2em;
+    text-align: center;
 }
 
-.profile-pic:hover {
-  transform: scale(1.05) rotate(5deg);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 1);
-  filter: brightness(1.2);
-}
-
-/* Info Section (Titles & Text) */
-.info h1, .info p {
-  color: white;
-  animation: fadeIn 1s forwards;
-}
-
-.info h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-  font-weight: 100; /* Thin font for h1 */
-  letter-spacing: 0.1em;
-}
-
-.info p {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  font-weight: 100; /* Light text for p */
-  color: #ddd; /* Soft color */
-  letter-spacing: 0.05em; /* Subtle letter-spacing */
-}
-
-.info p:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
+/* Description */
+.description {
+    color: #B0B0B0; /* Light gray for the description */
+    font-size: 1em;
+    text-align: center;
+    margin-top: 10px;
 }
 
 /* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .social-links a {
-  color: white;
-  font-size: 1.3rem;
-  margin-right: 1rem;
-  transition: transform 0.3s, color 0.3s;
-  animation: fadeIn 1s forwards, bounce 2s infinite;
+    color: #fff;
+    text-decoration: none;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-.social-links a:hover {
-  color: gray;
-  transform: scale(1.3) rotate(10deg);
-}
-
-/* Grid Section */
+/* Grid */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .grid-item {
-  display: flex;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s ease-in-out;
-  animation: fadeInUp 1s forwards;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
+    background-color: #595B83; /* Muted blue background */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+    transition: background-color 0.3s ease;
 }
 
 .grid-item:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    background-color: #F4ABC4; /* Soft pink hover effect */
 }
 
 .grid-item span {
-  color: white;
-  margin-left: 1rem;
-  font-size: 1rem;
-  font-weight: 100; /* Thin font weight */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin-top: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-  }
+/* Accent Color Styling */
+button, .button {
+    background-color: #F4ABC4; /* Soft pink */
+    color: #060930; /* Dark purple text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-  .info h1 {
-    font-size: 2rem;
-  }
+button:hover, .button:hover {
+    background-color: #333456; /* Dark blue on hover */
+}
 
-  .info p {
-    font-size: 1rem;
-  }
+/* Custom Favicon */
+link[rel="icon"] {
+    color: #F4ABC4; /* Matching the soft pink for branding */
+}
 
-  .social-links a {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
+/* Accent Text */
+.accent-text {
+    color: #F4ABC4; /* Soft pink for special text */
 }
