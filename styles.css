@@ -31,20 +31,21 @@ body {
   text-align: center;
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Neon Glowing Border Effect */
+/* Neon Glowing Border Effect Outside the Card */
 .card:before {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
+  top: -15px;   /* Shift the glow outwards */
+  left: -15px;  /* Shift the glow outwards */
+  right: -15px; /* Shift the glow outwards */
+  bottom: -15px;/* Shift the glow outwards */
   background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
-  border-radius: 15px;
+  border-radius: 20px; /* A bit larger to fit outside */
   z-index: -1;
-  filter: blur(10px);
+  filter: blur(20px);  /* Make the glow soft and diffused */
   animation: glow 1.5s infinite alternate;
 }
 
