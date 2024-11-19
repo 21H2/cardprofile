@@ -6,8 +6,8 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif; /* Updated font */
-  background-color: #060930;
+  font-family: 'Poppins', sans-serif; /* Smooth and cute font */
+  background-color: #060930; /* Dark background */
   color: #fff;
   display: flex;
   justify-content: center;
@@ -15,11 +15,27 @@ body {
   height: 100vh;
   overflow: hidden;
   margin: 0;
+  position: relative;
+}
+
+/* Lively Animated Background (not behind the card) */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(145deg, #F4ABC4, #595B83, #333456, #FF61A6);
+  background-size: 300% 300%;
+  z-index: -2;
+  animation: lively-background 5s ease infinite, color-shift 10s ease-in-out infinite alternate;
+  filter: blur(50px);
 }
 
 /* Card Style */
 .card {
-  background: #333456;
+  background: #595B83; /* Accent color for the card */
   width: 100%;
   max-width: 800px;
   padding: 30px;
@@ -31,7 +47,6 @@ body {
   backdrop-filter: blur(10px);
   overflow: hidden;
   transition: all 0.3s ease;
-  /* Ensuring the card is always contained in one screen */
   max-height: 600px;
   height: auto;
 }
@@ -40,14 +55,14 @@ body {
 .card:before {
   content: '';
   position: absolute;
-  top: -20px;   /* Shift the glow outwards */
-  left: -20px;  /* Shift the glow outwards */
-  right: -20px; /* Shift the glow outwards */
-  bottom: -20px;/* Shift the glow outwards */
-  background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
-  border-radius: 20px; /* A bit larger to fit outside */
+  top: -20px;   
+  left: -20px;  
+  right: -20px; 
+  bottom: -20px; 
+  background: linear-gradient(145deg, #F4ABC4, #FF61A6, #F4ABC4, #595B83);
+  border-radius: 20px;
   z-index: -1;
-  filter: blur(25px);  /* Make the glow soft and diffused */
+  filter: blur(25px);  
   animation: lively-glow 2.5s ease infinite alternate;
 }
 
@@ -122,6 +137,25 @@ body {
     transform: scale(1) rotate(0deg);
     opacity: 0.8;
     background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
+  }
+}
+
+/* Animated Background Color Shifts */
+@keyframes lively-background {
+  0% {
+    background: linear-gradient(145deg, #F4ABC4, #595B83, #333456, #FF61A6);
+  }
+  25% {
+    background: linear-gradient(145deg, #FF61A6, #F4ABC4, #333456, #F4ABC4);
+  }
+  50% {
+    background: linear-gradient(145deg, #F4ABC4, #FF61A6, #595B83, #333456);
+  }
+  75% {
+    background: linear-gradient(145deg, #333456, #F4ABC4, #FF61A6, #595B83);
+  }
+  100% {
+    background: linear-gradient(145deg, #F4ABC4, #595B83, #FF61A6, #333456);
   }
 }
 
