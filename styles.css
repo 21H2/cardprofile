@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 
-/* Lively Animated Background (not behind the card) */
+/* Lively Animated Background (behind the card) */
 body::before {
   content: '';
   position: absolute;
@@ -33,7 +33,7 @@ body::before {
   filter: blur(50px);
 }
 
-/* Card Style */
+/* Card Style (Accent Colors) */
 .card {
   background: #595B83; /* Accent color for the card */
   width: 100%;
@@ -111,7 +111,7 @@ body::before {
   }
 }
 
-/* More Dynamic Glow */
+/* Lively Neon Glow Effect */
 @keyframes lively-glow {
   0% {
     transform: scale(1) rotate(0deg);
