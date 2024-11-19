@@ -1,180 +1,154 @@
-/* Base Styles */
+/* Global Styles */
 body {
     font-family: 'Gloock', sans-serif;
     background: url('your-background-image.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #fff;
     margin: 0;
     padding: 0;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
-/* Overlay Effect */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 30, 0.6);
-    z-index: -1;
-}
-
-/* Horizontal Card */
+/* Card Container */
 .card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: rgba(0, 9, 48, 0.7);
-    border-radius: 15px;
-    padding: 40px;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    justify-content: space-between;
+    background-color: rgba(6, 9, 48, 0.9); /* Dark background */
+    padding: 20px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    width: 70%;
     position: relative;
-    overflow: hidden;
-    animation: cardAnimation 2s ease-in-out infinite;
-    border: 4px solid;
-    border-image: linear-gradient(45deg, #F4ABC4, #ffffff, #595B83);
-    border-image-slice: 1;
+    max-width: 900px;
+    animation: cardGlow 2s ease-in-out infinite alternate;
 }
 
-/* Glowing Neon Border Animation */
-@keyframes cardAnimation {
+/* Glow Effect Under the Card */
+@keyframes cardGlow {
     0% {
-        border-image-source: linear-gradient(45deg, #F4ABC4, #ffffff, #595B83);
-    }
-    25% {
-        border-image-source: linear-gradient(45deg, #F4ABC4, #fff, #F4ABC4);
-    }
-    50% {
-        border-image-source: linear-gradient(45deg, #F4ABC4, #fff, #595B83);
-    }
-    75% {
-        border-image-source: linear-gradient(45deg, #ffffff, #F4ABC4, #595B83);
+        box-shadow: 0 0 15px #F4ABC4, 0 0 30px #F4ABC4;
     }
     100% {
-        border-image-source: linear-gradient(45deg, #F4ABC4, #ffffff, #595B83);
+        box-shadow: 0 0 30px #F4ABC4, 0 0 60px #F4ABC4;
     }
 }
 
-/* Profile Picture */
+/* Profile Image */
 .profile-pic {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
     object-fit: cover;
     position: absolute;
-    top: -75px;
-    right: 0;
+    top: -60px;
+    right: 20px;
     border: 4px solid #F4ABC4;
-    box-shadow: 0 0 15px #F4ABC4;
+    box-shadow: 0 0 20px #F4ABC4;
     animation: glowEffect 1.5s ease-in-out infinite alternate;
 }
 
-/* Neon Glow Effect on Image */
+/* Glow Effect for Profile Image */
 @keyframes glowEffect {
     0% {
-        box-shadow: 0 0 15px #F4ABC4, 0 0 30px #F4ABC4, 0 0 45px #F4ABC4;
+        box-shadow: 0 0 15px #F4ABC4, 0 0 30px #F4ABC4;
     }
     100% {
-        box-shadow: 0 0 25px #F4ABC4, 0 0 40px #F4ABC4, 0 0 60px #F4ABC4;
+        box-shadow: 0 0 25px #F4ABC4, 0 0 40px #F4ABC4;
     }
 }
 
-/* Profile Information Below */
+/* Profile Information */
 .info {
-    text-align: center;
-    margin-top: 100px; /* To give space below the profile image */
+    max-width: 60%;
+    padding-left: 20px;
 }
 
 h1.gloock-font {
+    font-size: 2.5rem;
     color: #F4ABC4;
-    font-size: 2.5em;
     margin: 0;
-    animation: textAnimation 3s ease-in-out infinite alternate;
+    text-align: left;
 }
 
 .description {
+    font-size: 1.2rem;
     color: #B0B0B0;
-    font-size: 1.2em;
     margin-top: 10px;
-    animation: textAnimation 3s ease-in-out infinite alternate;
+    text-align: left;
 }
 
-@keyframes textAnimation {
-    0% {
-        color: #F4ABC4;
-    }
-    50% {
-        color: #ffffff;
-    }
-    100% {
-        color: #595B83;
-    }
-}
-
-/* Social Links */
 .social-links {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: 20px;
 }
 
 .social-links a {
     color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .social-links a:hover {
-    background-color: #F4ABC4;
     transform: scale(1.1);
 }
 
-/* Grid Below */
+/* Grid Section Below */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .grid-item {
     background-color: #595B83;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
     color: #fff;
-    transition: background-color 0.3s ease;
-    animation: gridItemHover 1s ease-in-out infinite alternate;
-}
-
-@keyframes gridItemHover {
-    0% {
-        background-color: #595B83;
-    }
-    50% {
-        background-color: #F4ABC4;
-    }
-    100% {
-        background-color: #595B83;
-    }
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .grid-item:hover {
     background-color: #F4ABC4;
+    transform: scale(1.05);
 }
 
 .grid-item span {
+    margin-top: 10px;
     display: block;
-    margin-top: 5px;
 }
 
-/* Accent Color Styling */
+/* Mobile-Friendly Adjustments */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .profile-pic {
+        position: relative;
+        top: 0;
+        margin-top: -60px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Accent Color */
 button, .button {
     background-color: #F4ABC4;
     color: #060930;
@@ -187,14 +161,4 @@ button, .button {
 
 button:hover, .button:hover {
     background-color: #333456;
-}
-
-/* Custom Favicon */
-link[rel="icon"] {
-    color: #F4ABC4;
-}
-
-/* Accent Text */
-.accent-text {
-    color: #F4ABC4;
 }
