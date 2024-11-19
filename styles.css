@@ -29,19 +29,26 @@ body {
 
 /* Card Container for perspective */
 .card-container {
-  perspective: 1000px;
+  perspective: 1200px; /* Adjusted perspective for a smoother 3D effect */
+  width: 320px; /* Consistent width */
+  height: 420px; /* Consistent height */
+  position: relative; /* Ensure container is properly positioned */
 }
 
 /* Card Styles */
 .card {
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transform: rotateY(0deg);
-  transition: transform 0.6s;
+  transition: transform 0.6s ease-in-out;
+  border-radius: 12px;
+  /* Ensure the flip starts from the center */
+  transform-origin: center center; 
 }
 
+/* Hover effect to flip the card */
 .card:hover {
   transform: rotateY(180deg);
 }
@@ -52,7 +59,7 @@ body {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.6s;
+  transition: transform 0.6s ease-in-out;
 }
 
 /* Front of the Card */
@@ -62,15 +69,16 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 12px;
 }
 
 .card-front {
   background: #595B83;
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 20px; /* Add padding to ensure content is not too close to edges */
 }
 
 .profile-pic {
@@ -119,11 +127,10 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: rotateY(180deg);
-  border-radius: 12px;
+  transform: rotateY(180deg); /* Ensures it's flipped */
   text-align: center;
 
-  /* New styling to center content */
+  /* Centering content on the back of the card */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,23 +142,4 @@ h1 {
   margin: 10px 0;
   font-size: 1.1rem;
   text-align: center;
-}
-
-/* Tooltip for Social Links */
-.social-links a[title] {
-  position: relative;
-}
-
-.social-links a[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  white-space: nowrap;
 }
