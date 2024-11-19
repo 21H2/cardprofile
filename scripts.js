@@ -10,35 +10,11 @@ document.addEventListener("mousemove", (e) => {
   const rotateX = (y - centerY) / 50;
   const rotateY = (centerX - x) / 50;
   card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
 
-// Reset card position on mouse leave with transition
-document.addEventListener("mouseleave", () => {
-  card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
-});
-
-// Title Animation with pause on tab switch
-let titleInterval = setInterval(() => {
-  document.getElementById("dynamic-title").innerText = titles[index];
-  index = (index + 1) % titles.length;
-}, 3000);
-
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    clearInterval(titleInterval);
-  } else {
-    titleInterval = setInterval(() => {
-      document.getElementById("dynamic-title").innerText = titles[index];
-      index = (index + 1) % titles.length;
-    }, 3000);
-  }
-});
-
-// Parallax effect for grid items with transition
-document.addEventListener("mousemove", (e) => {
+  // Parallax effect for grid items
   const gridItems = document.querySelectorAll(".grid-item");
-  const mouseX = e.clientX / window.innerWidth;
-  const mouseY = e.clientY / window.innerHeight;
+  const mouseX = x / window.innerWidth;
+  const mouseY = y / window.innerHeight;
 
   gridItems.forEach((item, index) => {
     const depth = 15 * (index + 1);
@@ -47,6 +23,32 @@ document.addEventListener("mousemove", (e) => {
     item.style.transform = `translate(${moveX}px, ${moveY}px)`;
   });
 });
+
+// Reset card position on mouse leave with transition
+document.addEventListener("mouseleave", () => {
+  card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+});
+
+// Title Animation with pause on tab switch
+let titleInterval;
+
+function startTitleAnimation() {
+  titleInterval = setInterval(() => {
+    document.getElementById("dynamic-title").innerText = titles[index];
+    index = (index + 1) % titles.length;
+  }, 3000);
+}
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    clearInterval(titleInterval);
+  } else {
+    startTitleAnimation();
+  }
+});
+
+// Start title animation on page load
+window.addEventListener("load", startTitleAnimation);
 
 // Typing animation for the description
 const descriptions = [
@@ -59,9 +61,9 @@ let charIndex = 0;
 
 function typeDescription() {
   if (lineIndex < descriptions.length) {
-    descriptionElement.textContent = "";
     const line = descriptions[lineIndex];
     charIndex = 0;
+    descriptionElement.textContent = "";  // Clear content at the start of a new line
 
     function typeLine() {
       if (charIndex < line.length) {
