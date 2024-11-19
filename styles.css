@@ -31,10 +31,10 @@ body {
 /* Card Container for perspective */
 .card-container {
   perspective: 1000px; /* Adjust perspective for smoother 3D effect */
-  width: 80vw; /* Set width to 80% of the viewport width */
-  height: 50vh; /* Set height to 50% of the viewport height */
+  width: 50vw; /* Set width to 50% of the viewport width */
+  height: 75vh; /* Set height to 75% of the viewport height for a portrait card */
   max-width: 400px; /* Maximum width */
-  max-height: 250px; /* Maximum height */
+  max-height: 600px; /* Maximum height */
   border: 2px solid #F4ABC4; /* Add border around the card container */
   border-radius: 12px;
   padding: 20px;
@@ -90,8 +90,8 @@ body {
 }
 
 .profile-pic {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin-bottom: 1em;
   border: 5px solid #fff;
@@ -102,13 +102,13 @@ body {
 }
 
 h1 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: #F4ABC4;
   margin-bottom: 0.5em;
 }
 
 .description {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #dcdcdc;
   margin-bottom: 1em;
 }
