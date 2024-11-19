@@ -83,12 +83,14 @@ body::before {
 .card h1 {
   font-size: 2rem;
   margin-bottom: 0.5em;
+  color: #F4ABC4; /* Accent color applied */
 }
 
 .card .description {
   font-size: 1rem;
   color: #dcdcdc;
   margin-bottom: 1em;
+  color: #F4ABC4; /* Accent color applied */
 }
 
 /* Social Links */
@@ -114,7 +116,7 @@ body::before {
 
 /* Links Hover Effect */
 .card .links a {
-  color: #f4ABC4;
+  color: #F4ABC4; /* Accent color applied */
   font-size: 1rem;
   margin: 10px 0;
   transition: all 0.3s ease;
