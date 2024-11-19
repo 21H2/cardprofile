@@ -122,6 +122,19 @@ h1 {
   transform: rotateY(180deg);
   border-radius: 12px;
   text-align: center;
+
+  /* New styling to center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-back h2,
+.card-back p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
 /* Tooltip for Social Links */
