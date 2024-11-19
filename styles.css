@@ -27,7 +27,12 @@ body {
   z-index: -1;
 }
 
-/* Card Styles */
+/* Card Container */
+.card-container {
+  perspective: 1000px; /* Create depth for the flip effect */
+}
+
+/* Card */
 .card {
   width: 80%;
   max-width: 500px;
@@ -40,6 +45,39 @@ body {
   z-index: 1;
   border: 2px solid #F4ABC4;
   animation: borderGlow 3s infinite alternate;
+  transform-style: preserve-3d; /* Enable 3D for the flip */
+  transition: transform 0.6s; /* Flip animation */
+}
+
+.card-inner {
+  position: relative;
+  transform-style: preserve-3d; /* Required for 3D effects */
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide the back side when flipped */
+}
+
+/* Front of the Card */
+.card-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Back of the Card */
+.card-back {
+  background: #4f4f71; /* A different background for the back */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg); /* Initially rotate the back 180 degrees */
 }
 
 /* Profile Picture */
@@ -114,6 +152,11 @@ h1 {
   transform: scale(1.05);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
+}
+
+/* Flip Effect on Click */
+.card:active {
+  transform: rotateY(180deg); /* Flip the card on click */
 }
 
 /* Smooth Scroll */
