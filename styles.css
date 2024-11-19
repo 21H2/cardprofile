@@ -89,14 +89,14 @@ body {
 }
 
 .info h1 {
-  font-size: 2rem; /* Made the text smaller */
+  font-size: 2.8rem;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
   transition: text-shadow 0.3s ease-in-out;
 }
 
 .info p {
-  font-size: 1.2rem; /* Made the text smaller */
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
   transition: color 0.3s;
@@ -114,7 +114,7 @@ body {
 /* Social Links */
 .social-links a {
   color: white;
-  font-size: 1.2rem; /* Slightly smaller size for social icons */
+  font-size: 1.5rem;
   margin-right: 1rem;
   transition: transform 0.3s, color 0.3s;
   animation: fadeIn 1s forwards, bounce 2s infinite;
@@ -174,7 +174,7 @@ body {
   }
 
   .info h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .info p {
