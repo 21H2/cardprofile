@@ -27,33 +27,32 @@ body {
   z-index: -1;
 }
 
-/* Card Container */
+/* Card Container for perspective */
 .card-container {
-  perspective: 1000px; /* Create depth for the flip effect */
+  perspective: 1000px;
 }
 
-/* Card */
+/* Card Styles */
 .card {
-  width: 80%;
-  max-width: 500px;
-  padding: 2em;
-  background: #595B83;
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  width: 300px;
+  height: 400px;
   position: relative;
-  text-align: center;
-  z-index: 1;
-  border: 2px solid #F4ABC4;
-  animation: borderGlow 3s infinite alternate;
-  transform-style: preserve-3d; /* Enable 3D for the flip */
-  transition: transform 0.6s; /* Flip animation */
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.6s;
 }
 
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+/* Card Inner to contain front and back */
 .card-inner {
-  position: relative;
-  transform-style: preserve-3d; /* Required for 3D effects */
+  position: absolute;
   width: 100%;
   height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
 /* Front of the Card */
@@ -62,29 +61,18 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Hide the back side when flipped */
+  backface-visibility: hidden;
 }
 
-/* Front of the Card */
 .card-front {
+  background: #595B83;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* Back of the Card */
-.card-back {
-  background: #4f4f71; /* A different background for the back */
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transform: rotateY(180deg); /* Initially rotate the back 180 degrees */
-}
-
-/* Profile Picture */
 .profile-pic {
   width: 150px;
   height: 150px;
@@ -93,14 +81,13 @@ body {
   border: 5px solid #fff;
 }
 
-/* Card Information */
 .info {
-  margin-bottom: 1em;
+  text-align: center;
 }
 
 h1 {
-  font-size: 2rem;
-  color: #F4ABC4; /* Accent color */
+  font-size: 1.5rem;
+  color: #F4ABC4;
   margin-bottom: 0.5em;
 }
 
@@ -125,6 +112,18 @@ h1 {
   transform: scale(1.2);
 }
 
+/* Card Back - Additional Info */
+.card-back {
+  background: #444;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  border-radius: 12px;
+  text-align: center;
+}
+
 /* Tooltip for Social Links */
 .social-links a[title] {
   position: relative;
@@ -142,28 +141,4 @@ h1 {
   border-radius: 5px;
   font-size: 0.8rem;
   white-space: nowrap;
-}
-
-/* Border Glow Animation */
-@keyframes borderGlow {
-  0% { border-color: #f4ABC4; }
-  50% { border-color: #595B83; }
-  100% { border-color: #F4ABC4; }
-}
-
-/* Hover Effect on Card */
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Flip Effect on Click */
-.card:active .card-inner {
-  transform: rotateY(180deg); /* Flip the card when clicked */
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
 }
