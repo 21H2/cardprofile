@@ -31,6 +31,9 @@ body {
   backdrop-filter: blur(10px);
   overflow: hidden;
   transition: all 0.3s ease;
+  /* Ensuring the card is always contained in one screen */
+  max-height: 600px;
+  height: auto;
 }
 
 /* Lively Neon Glowing Border Effect Outside the Card */
@@ -45,7 +48,7 @@ body {
   border-radius: 20px; /* A bit larger to fit outside */
   z-index: -1;
   filter: blur(25px);  /* Make the glow soft and diffused */
-  animation: lively-glow 3s ease infinite alternate;
+  animation: lively-glow 2.5s ease infinite alternate;
 }
 
 /* Profile Picture */
@@ -120,4 +123,13 @@ body {
     opacity: 0.8;
     background: linear-gradient(145deg, #F4ABC4, #595B83, #F4ABC4, #333456);
   }
+}
+
+/* Smooth 60fps Transition */
+* {
+  will-change: transform, opacity;
+}
+
+html, body {
+  font-smooth: always;
 }
