@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title id="dynamic-title">My Profile!</title>
-  <link rel="icon" href="https://static.wikia.nocookie.net/c6df2888-9bd2-4195-a154-674f9d13919f" type="image/gif" />
-  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Profile!</title>
+  <link rel="icon" href="https://static.wikia.nocookie.net/c6df2888-9bd2-4195-a154-674f9d13919f" type="image/gif">
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="card-container">
-    <div class="card" id="card">
-      <div class="card-inner">
-        <!-- Front of Card -->
-        <div class="card-front">
-          <div class="profile-pic-container">
-            <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic" />
-          </div>
-          <div class="info">
-            <h1>Umesh Sharma</h1>
-            <p class="description">Teen tech enthusiast passionate about AI, coding, and innovation.</p>
-            <div class="social-links">
-              <a href="https://github.com/21h2" title="GitHub Profile">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub" />
-              </a>
-              <a href="mailto:ume@waifu.club" title="Email Me">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail" />
-              </a>
-              <a href="https://discord.dog/261627553926610944" title="Discord">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord" />
-              </a>
-            </div>
-          </div>
-        </div>
+  <div id="background"></div>
 
-        <!-- Back of Card -->
-        <div class="card-back">
-          <h2>About Me</h2>
-          <p>
-            I am a developer who loves exploring tech and creating impactful projects. I enjoy diving deep into AI, coding, and modern technology to innovate and inspire.
-          </p>
+  <!-- Theme Toggle Button -->
+  </div>
+
+  <!-- Card Container -->
+  <div class="card-container">
+    <div class="card">
+      <div class="badges">
+        <span class="badge">HTML</span>
+        <span class="badge">CSS</span>
+        <span class="badge">JavaScript</span>
+      </div>
+      <div class="card-front">
+        <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic">
+        <h1>Umesh Sharma</h1>
+        <p id="typingText"></p>
+        <div class="social-links">
+          <a href="https://github.com/21h2" title="GitHub">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+          </a>
+          <a href="mailto:ume@waifu.club" title="Mail">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Mail">
+          </a>
+          <a href="https://discord.dog/261627553926610944" title="Discord">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord">
+          </a>
         </div>
+      </div>
+      <div class="card-back">
+        <h2>About Me</h2>
+        <p>
+          Teen tech enthusiast passionate about AI, coding, and innovation. Always eager to learn and grow!
+        </p>
       </div>
     </div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
