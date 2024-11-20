@@ -8,13 +8,13 @@
   <link rel="icon" href="https://static.wikia.nocookie.net/c6df2888-9bd2-4195-a154-674f9d13919f" type="image/gif">
   <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script> <!-- Particles.js -->
+  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="styles.css"> <!-- Your custom styles -->
 </head>
 <body>
+  <!-- Background Particles -->
   <div id="background"></div>
-
-  <!-- Theme Toggle Button -->
-  </div>
 
   <!-- Card Container -->
   <div class="card-container">
@@ -27,7 +27,7 @@
       <div class="card-front">
         <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic">
         <h1>Umesh Sharma</h1>
-        <p id="typingText"></p>
+        <p id="typingText"></p> <!-- Typewriter Text here -->
         <div class="social-links">
           <a href="https://github.com/21h2" title="GitHub">
             <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
@@ -48,6 +48,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursor"></div>
 
   <script src="app.js"></script>
 </body>
