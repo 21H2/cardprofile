@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  position: relative;
+  overflow: hidden; /* Hide any unwanted scrollbars */
 }
 
 #background {
@@ -26,12 +26,19 @@ body {
   background: #1a1a1d;
 }
 
-/* Card Container with Perspective */
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+/* Card */
 .card-container {
   perspective: 1000px;
 }
 
-/* Card Styles */
 .card {
   width: 350px;
   height: 500px;
@@ -39,14 +46,14 @@ body {
   border-radius: 12px;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease;
+  transition: transform 0.8s ease-in-out; /* Smooth flip animation */
 }
 
 .card:hover {
   transform: rotateY(180deg);
 }
 
-/* Front and Back Faces of the Card */
+/* Front and Back */
 .card-front, .card-back {
   position: absolute;
   backface-visibility: hidden;
@@ -56,13 +63,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5em; /* Adjust padding for spacing */
+  padding: 1em;
   border-radius: 12px;
-  text-align: center;
 }
 
 .card-front {
   background: #595b83;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text */
+  text-align: center;
 }
 
 .card-back {
@@ -70,13 +80,13 @@ body {
   transform: rotateY(180deg);
 }
 
-/* Profile Picture Styling */
+/* Profile Picture */
 .profile-pic {
   width: 120px;
   height: 120px;
   border-radius: 50%;
   border: 3px solid #fff;
-  margin-bottom: 1.5em; /* Added spacing from text */
+  margin-bottom: 1em;
   box-shadow: 0 0 15px #f4abc4, 0 0 30px #f4abc4;
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -85,40 +95,7 @@ body {
   box-shadow: 0 0 25px #f4abc4, 0 0 50px #f4abc4;
 }
 
-/* Card Text and Description */
-h1 {
-  font-size: 2rem;
-  color: #f4abc4; /* Accent color for text */
-  margin-bottom: 0.5em;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-/* Description */
-.description {
-  font-size: 1rem;
-  color: #dcdcdc;
-  margin-bottom: 1.5em; /* Spacing between description and social links */
-}
-
-/* Social Links Styling */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.social-links img {
-  width: 30px;
-  height: 30px;
-}
-
-/* Hover Effect for Social Icons */
-.social-links a:hover img {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px #f4abc4;
-}
-
-/* Badges Styling */
+/* Badges */
 .badges {
   position: absolute;
   top: 10px;
@@ -135,25 +112,60 @@ h1 {
   font-size: 0.8rem;
 }
 
+/* Social Links */
+.social-links img {
+  width: 30px;
+  margin: 0 10px;
+}
+
 /* About Section */
 .card-back h2 {
   margin-bottom: 1em;
-  color: #fff;
 }
 
 .card-back p {
   text-align: center;
   line-height: 1.5;
-  color: #dcdcdc;
 }
 
-/* Glow Effect on Card's Borders */
-.card {
-  box-shadow: 0 0 15px rgba(244, 171, 196, 0.5), 0 0 30px rgba(244, 171, 196, 0.3);
-  transition: box-shadow 0.3s ease;
+/* Custom Cursor */
+.cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  background: #f4abc4;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Prevent interfering with clicks */
+  transition: transform 0.1s ease; /* Smooth cursor movement */
 }
 
-/* Hover Effect on Card */
-.card:hover {
-  box-shadow: 0 0 35px rgba(244, 171, 196, 0.6), 0 0 50px rgba(244, 171, 196, 0.5);
+body:hover .cursor {
+  transform: scale(1.5);
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(244, 171, 196, 0.3);
+  z-index: -1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+body[data-cursor="heart"] .cursor {
+  background: radial-gradient(circle, #f4abc4, transparent);
+  animation: heartbeat 0.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1.5);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
