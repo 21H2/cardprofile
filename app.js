@@ -88,14 +88,22 @@ particlesJS('background', {
 document.addEventListener('DOMContentLoaded', () => {
   const text = "Teen tech enthusiast passionate about AI, coding, and innovation.";
   const typingText = document.getElementById('typingText');
-  let index = 0;
+  let i = 0;
 
-  function type() {
-    if (index < text.length) {
-      typingText.textContent += text[index];
-      index++;
-      setTimeout(type, 50); // Adjust speed of typing
+  function typeWriter() {
+    if (i < text.length) {
+      typingText.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
     }
   }
-  type();
+
+  typeWriter();
+});
+
+// Custom Cursor Movement
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
 });
