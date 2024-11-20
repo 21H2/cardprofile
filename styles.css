@@ -7,13 +7,14 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #060930;
-  color: #f4f4f4;
-  overflow-x: hidden;
-  height: 100vh;
+  background-color: var(--bg-color, #060930);
+  color: var(--text-color, #f4f4f4);
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   position: relative;
 }
 
@@ -29,17 +30,14 @@ body {
 
 /* Card Styles */
 .card {
-  width: 80%;
-  max-width: 500px;
-  padding: 2em;
-  background: #595B83;
+  width: 300px;
+  background: var(--card-bg, #595B83);
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  position: relative;
   text-align: center;
-  z-index: 1;
-  border: 2px solid #F4ABC4;
-  animation: borderGlow 3s infinite alternate;
+  padding: 2em;
+  position: relative;
+  animation: fadeIn 1s ease-out;
 }
 
 /* Profile Picture */
@@ -48,7 +46,7 @@ body {
   height: 150px;
   border-radius: 50%;
   margin-bottom: 1em;
-  border: 5px solid #fff;
+  border: 5px solid var(--accent, #F4ABC4);
 }
 
 /* Card Information */
@@ -58,8 +56,7 @@ body {
 
 h1 {
   font-size: 2rem;
-  color: #F4ABC4; /* Accent color */
-  margin-bottom: 0.5em;
+  color: var(--accent, #F4ABC4);
 }
 
 .description {
@@ -71,52 +68,47 @@ h1 {
 /* Social Links */
 .social-links a {
   margin: 0 15px;
-  transition: transform 0.3s ease;
 }
 
 .social-links img {
   width: 24px;
   height: 24px;
+  transition: transform 0.3s ease;
 }
 
 .social-links a:hover img {
   transform: scale(1.2);
+  filter: drop-shadow(0 0 5px var(--accent, #F4ABC4));
 }
 
-/* Tooltip for Social Links */
-.social-links a[title] {
-  position: relative;
+/* Skill Icons */
+.skills img {
+  margin: 5px;
+  width: 30px;
+  height: 30px;
 }
 
-.social-links a[title]:hover::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
+/* Theme Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  background: var(--accent, #F4ABC4);
+  color: var(--text-color, #f4f4f4);
+  border: none;
   border-radius: 5px;
-  font-size: 0.8rem;
-  white-space: nowrap;
+  cursor: pointer;
 }
 
-/* Border Glow Animation */
-@keyframes borderGlow {
-  0% { border-color: #f4ABC4; }
-  50% { border-color: #595B83; }
-  100% { border-color: #F4ABC4; }
-}
-
-/* Hover Effect on Card */
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease-in-out;
-}
-
-/* Smooth Scroll */
-html {
-  scroll-behavior: smooth;
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
