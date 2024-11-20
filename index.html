@@ -4,26 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title id="dynamic-title">My profile!</title>
+  <title id="dynamic-title">My Profile</title>
   <link rel="icon" href="https://static.wikia.nocookie.net/c6df2888-9bd2-4195-a154-674f9d13919f" type="image/gif">
   <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
   <!-- Background Particles -->
   <div id="background"></div>
 
-  <div class="card" id="card">
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
+
+  <!-- Profile Card -->
+  <div class="card">
     <img src="https://i.pinimg.com/originals/ae/e4/35/aee4350bee46fdffaaaeeec3a2d7ce24.gif" alt="Profile Picture" class="profile-pic" />
     <div class="info">
       <h1>Umesh Sharma</h1>
-      <p class="description">Teen tech enthusiast passionate about AI, coding, and innovation.</p>
-      
+      <p id="dynamic-description" class="description"></p>
       <div class="social-links">
         <a href="https://github.com/21h2" title="GitHub Profile">
           <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
@@ -35,6 +35,10 @@
           <img src="https://img.icons8.com/ios-filled/50/ffffff/discord.png" alt="Discord">
         </a>
       </div>
+    </div>
+    <div class="skills">
+      <img src="https://img.icons8.com/color/48/000000/python.png" alt="Python">
+      <img src="https://img.icons8.com/color/48/000000/javascript.png" alt="JavaScript">
     </div>
   </div>
 
